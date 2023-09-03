@@ -50,9 +50,8 @@ public class CollisionCallback : MonoBehaviour
     /// </summary>
     private void CheckValidation()
     {
-        if (TryGetComponent<BoxCollider>(out _) == false &&
-            TryGetComponent<CapsuleCollider>(out _) == false &&
-            TryGetComponent<SphereCollider>(out _) == false)
+        if (TryGetComponent<Collider>(out _) == false &&
+            TryGetComponent<Collider2D>(out _) == false)
         {
             Debug.LogError("CollisionCallback: collider component is required to use this script!");
         }
