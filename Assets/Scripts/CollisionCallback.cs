@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This component provides an indirect control methods for the objects that are involved in the collison, both collision invokers and collision receivers.
+/// This component provides an in-direct control methods for the objects that are involved in the collison, both collision invokers and collision receivers.
 /// </summary>
 public class CollisionCallback : MonoBehaviour
 {
+
     private class CallbackConfig
     {
         /* Will pass the gameobject of the invader back to the callback function */
@@ -41,6 +42,16 @@ public class CollisionCallback : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Debug.LogWarning("OnCollisionEnter");
+        InvokeCallback(collision.gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        InvokeCallback(collision.gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         InvokeCallback(collision.gameObject);
     }
 
